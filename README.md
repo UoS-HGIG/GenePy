@@ -1,13 +1,20 @@
 # GenePy
 GenePy v1.2 a score for the analysis of next generation sequencing
 
-Input to GenePy is a multi-sample VCF (GENOTYPED_ALL.vcf.gz in this example). We recommend the following filters to improve score consistency based on Tom et al. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5525370/pdf/12859_2017_Article_1756.pdf ).
+To run GenePy you need:
+* A (multi)sample VCF file (can accept compressed vcf.gz)
+* List of genes for which generate GenePy scores.
+
 Before running GenePy, we need to annotate SNVs and generate a GenePy-ready file (ALL_genepy.meta)
 
+The first required input to GenePy is a multi-sample VCF (GENOTYPED_ALL.vcf.gz in this example). 
+
+We recommend the following filters to improve score consistency based on Tom et al. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5525370/pdf/12859_2017_Article_1756.pdf ).
+```
 vcftools --gzvcf GENOTYPED_ALL.vcf.gz --minGQ 20 --recode --out GENO_FILT_GQ20 # Set GQ<20 as missing ( retain high confidence calls)
 vcftools --vcf GENO_FILT_GQ20.vcf --max-missing 0.7 --out filtered # Remove SNVs with missing rate >30%
 vcftools --vcf filtered.recode.vcf --min-alleles 2 --max-alleles 2 # Keep only Biallelic SNVs 
-
+````
 ##### MAKE annovar-ready file:
 ```
 ./annovar/convert2annovar.pl \
