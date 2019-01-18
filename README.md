@@ -3,7 +3,7 @@ GenePy v1.2 a score for the analysis of next generation sequencing
 
 To run GenePy you need:
 * A (multi)sample VCF file (can accept compressed vcf.gz)
-* List of genes for which generate GenePy scores.
+* List of genes for which generate GenePy scores. (gene.list)
 * Vcftools
 * Annovar
 * Python 3.x
@@ -48,3 +48,25 @@ cut -f 9- ALL_genepy.input > a1
 cat header a1 > b1
 paste ALL_genepy.hg19_multianno.txt b1 > ALL_genepy.meta
 ```
+#### Prepare output folders/dependecies
+make new folders in your current directory to store raw GenePy score files
+```
+mkdir CADD13_RawScore Eigen GWAVA_region_score GWAVA_tss_score dann REVEL
+```
+Take the header from the ALL_genepy.meta file and stores it in a newly created header file
+```
+grep "^Chr" ALL_genepy.meta> header
+```
+
+#### Compute GenePy scores
+Once the ALL_genepy.meta file is created, GenePy_1.2.sh can be run by simply iterating through the list of deisred genes. Be aware, the make_scores_mat_5.py file **must** be in the same directory of GenePy_1.2.sh.
+
+```
+while read gene:
+do
+sh GenePy_1.2.sh $gene ;
+done< gene.list
+
+````
+
+This
