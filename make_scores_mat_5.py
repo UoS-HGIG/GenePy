@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Sept 27 12:02:04 2017
-
 @author: Enrico
 
 Change log:
-This version is based on ALL frequencies and not EUR.
-gnomeAD interrogation has been switched, first genome then exome
+This version is based on ALL frequencies and not EUR (can be switched in the following code).
 
-14.11.18 Removed the request to ensmbl, using only bi-allelic loci to simplify
-script. Much faster. Replaced macap (only for rare SNVs) with eigen. gnomAD exome
-is now the pricipal dataset for frequencies. Novel frequencies are set to one 
+14.11.18 Removed the request to ensmbl, using only bi-allelic loci to speed up
+script. Coding-only deleteriousness metrics (e.g. M-CAP works only for rare SNVs) are dropped. New genome-wide metrics included. gnomAD exome
+is now the pricipal dataset for frequencies (previously ExAC03). Novel frequencies are set to one 
 individual out 125,748 in gnomAD_exome.
 """
 import sys, re
@@ -42,7 +39,7 @@ header=np.array(data.pop(0).split('\t'))
 for _i,_n in enumerate(data):
     data[_i] = re.sub('0/0[\S]+','0', data[_i])
     data[_i] = re.sub('0/[123456789][\S]+','1', data[_i])
-    data[_i] = re.sub('[123456789]/[123456789][\S]+','2', data[_i])
+    data[_i] = re.sub('[123456789]/[123456789][\S]+','2', data[_i]) #only bi-allelic in the input, but left for future upgrade of multi-allelic
     data[_i] = re.sub('\./\.[\S]*','0', data[_i])
     data[_i] = data[_i].split('\t')
 
@@ -59,7 +56,7 @@ scores = data[:,19:25]
 scores[scores=='.'] = np.nan
 scores = scores.astype('float')
 scores_names = header[19:25]
-# reformat CADD range
+# reformat CADD range to 0-1
 scores[:,0] = (scores[:,0] - (-7.535037))/(35.788538-(-7.535037))
 
 #%% gnomADexome FREQUENCIES (assume biallelic)
