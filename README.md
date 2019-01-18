@@ -15,7 +15,7 @@ vcftools --gzvcf GENOTYPED_ALL.vcf.gz --minGQ 20 --recode --out GENO_FILT_GQ20 #
 vcftools --vcf GENO_FILT_GQ20.vcf --max-missing 0.7 --out filtered # Remove SNVs with missing rate >30%
 vcftools --vcf filtered.recode.vcf --min-alleles 2 --max-alleles 2 # Keep only Biallelic SNVs 
 ````
-##### MAKE annovar-ready file:
+##### Make annovar-ready file:
 ```
 ./annovar/convert2annovar.pl \
 	-format vcf4 FINAL_GQ20M30_BIALL.recode.vcf.gz \
