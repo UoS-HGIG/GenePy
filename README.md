@@ -69,4 +69,8 @@ done< gene.list
 
 ````
 
-This
+We strongly reccomend to combine GenePy output files (one per gene) into a single matrix where each column is a gene and each row is a sample.
+
+In order to compare/combine GenePy scores across genes, normalisation by length is required. Length depends on the BED file used to generate the VCF file. To correct by gene length please refer to extract_gene_size.py script (requires GenePy scores formatted in a matrix as previously explained).
+
+We also strongly reccomend to normalise GenePy scores by GDI score (http://lab.rockefeller.edu/casanova/GDI) using scirpt gdi_scale.py
