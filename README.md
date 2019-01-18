@@ -4,6 +4,9 @@ GenePy v1.2 a score for the analysis of next generation sequencing
 To run GenePy you need:
 * A (multi)sample VCF file (can accept compressed vcf.gz)
 * List of genes for which generate GenePy scores.
+* Vcftools
+* Annovar
+* Python 3.x
 
 Before running GenePy, we need to annotate SNVs and generate a GenePy-ready file (ALL_genepy.meta)
 
