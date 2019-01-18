@@ -6,7 +6,7 @@ To run GenePy you need:
 * List of genes for which generate GenePy scores. (gene.list)
 * Vcftools
 * Annovar
-* Python 3.x
+* Python 2.7.x
 
 Before running GenePy, we need to annotate SNVs and generate a GenePy-ready file (ALL_genepy.meta)
 
