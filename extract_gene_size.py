@@ -42,8 +42,8 @@ np.savetxt('hg19_sizes.txt', size, fmt='%s', delimiter='\t')
 
  W = norm_by_size(matrix, genes)
 
-# F = np.vstack((header,W))
-# g = data[:,0,np.newaxis]
-# F = np.hstack((g, F))
+F = np.vstack((header,W))
+g = data[:,0,np.newaxis]
+F = np.hstack((g, F))
 
-# np.savetxt('REVEL_GenePy_norm_matrix', F, fmt='%s', delimiter='\t')
+np.savetxt('REVEL_GenePy_norm_matrix', F, fmt='%s', delimiter='\t')
