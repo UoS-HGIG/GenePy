@@ -46,8 +46,8 @@ vcftools --vcf filtered.recode.vcf --min-alleles 2 --max-alleles 2 # Keep only B
 cut -f 18- ALL_genepy.input > a1
 zgrep '^#CHR' FINAL_GQ20M30_BIALL.recode.vcf.gz | cut -f 10- > b1
 cat b1 a1 > ALL_temp
-rm a1 b1 ALL_temp
 paste ALL_genepy.hg19_multianno.txt ALL_temp > ALL_genepy.meta
+rm a1 b1 ALL_temp
 ```
 #### Prepare output folders/dependecies
 make new folders in your current directory to store raw GenePy score files
