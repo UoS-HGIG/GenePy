@@ -1,5 +1,5 @@
 # GenePy
-GenePy v1.2 a score for the analysis of next generation sequencing
+GenePy v1.2 a score for the analysis of next generation sequencing data
 
 To run GenePy you need:
 * A (multi)sample VCF file (can accept compressed vcf.gz)
