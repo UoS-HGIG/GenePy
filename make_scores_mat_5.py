@@ -117,6 +117,6 @@ def score_db(samples,score,freq):
     return U
 #%%
 for i in range(scores.shape[1]):
-    if (np.isnan(scores[:,i]).sum()) < (scores.shape[0]-1): #compute metascores if at least 1 variant
+    if (np.isnan(scores[:,i]).sum()) < (scores.shape[0]): #compute metascores if at least 1 variant
         U = score_db(samples,scores[:,i],freqs)
         np.savetxt('./'+scores_names[i]+'/'+gene+'_'+scores_names[i]+'_matrix',U, fmt='%s', delimiter='\t')
