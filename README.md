@@ -1,5 +1,6 @@
 # GenePy
 GenePy v1.2 a score for the analysis of next generation sequencing data
+BMC Bioinformatics publication: https://doi.org/10.1186/s12859-019-2877-3
 
 To run GenePy you need:
 * A (multi)sample VCF file (can accept compressed vcf.gz)
