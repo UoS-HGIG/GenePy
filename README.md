@@ -3,13 +3,23 @@ GenePy v1.2 a score for the analysis of next generation sequencing data.
 
 BMC Bioinformatics publication: https://doi.org/10.1186/s12859-019-2877-3
 
-To run GenePy you need:
+The current (1.2) version of GenePy has the following improvements:
+- GenePy can include variants from non-coding regions
+- annotation no longer limited to non-synonymous single-nucleotide variants (dbnsfp33a)
+- annotation is based on whole genome metrics (CADD 1.3, DANN, GWAVA, EIGEN and REVEL) for all missense variants
+- population frequencies are now obtained from gnomAD instead of 1000 Genomes Prj.
+- annotations are based on hg19 but can be switched to HG38 when available from ANNOVAR
+
+*For historic reference the older GenePy version is available, but support is no longer given.*
+
+## GenePy requirements
 * A (multi)sample VCF file (can accept compressed vcf.gz)
 * List of genes for which generate GenePy scores. (gene.list)
 * Vcftools
 * Annovar
 * Python 2.7.x
 
+## How to run GenePy
 Before running GenePy, we need to annotate SNVs and generate a GenePy-ready file (ALL_genepy.meta)
 
 The first required input to GenePy is a multi-sample VCF (GENOTYPED_ALL.vcf.gz in this example). 
