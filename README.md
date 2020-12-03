@@ -1,4 +1,8 @@
 # GenePy
+
+## NEW VERSION AVAILABLE! Please utilise https://github.com/UoS-HGIG/GenePy-1.3 
+
+
 GenePy v1.2 a score for the analysis of next generation sequencing data.
 
 BMC Bioinformatics publication: https://doi.org/10.1186/s12859-019-2877-3
