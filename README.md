@@ -1,6 +1,6 @@
 # GenePy
 
-## NEW VERSION AVAILABLE! Please utilise https://github.com/UoS-HGIG/GenePy-1.3 
+## NEW VERSION AVAILABLE! Please utilise https://github.com/UoS-HGIG/GenePy-1.4 
 
 
 GenePy v1.2 a score for the analysis of next generation sequencing data.
